@@ -144,3 +144,7 @@ print(lst_to_sort_new2)
 b = range(-10, 10)
 b_new = list(filter(lambda x : (x<0), b))
 print(b_new)
+
+list_1 = [1, 2, 3, 5, 7, 9]
+list_2 = [2, 3, 5, 6, 7, 8]
+print(list(filter(lambda x: x in list_1, list_2)))
