@@ -28,7 +28,7 @@ print(isinstance(dict_e, dict))
 
 print("Anna has {} apples and {} peaches".format(1, 2))
 print("Anna has {1} apples and {0} peaches".format(1, 2))
-print("Anna has {0:4} apples and {0:2} peaches".format(1, 2))
+print("Anna has {0:4} apples and {1:2} peaches".format(1, 2))
 
 first = "1"
 second = "2"
