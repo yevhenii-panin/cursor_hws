@@ -5,7 +5,7 @@ class Laptop:
     """
 
     def __init__(self, battery):
-        self.battery = battery
+        self.battery = Battery(battery)
 
 
 class Battery:
@@ -17,7 +17,6 @@ class Battery:
         pass
 
 
-battery = Battery()
 laptop = Laptop(battery)
 
 
@@ -27,13 +26,9 @@ class Guitar:
     Make the class with aggregation
     """
 
-    def __init__(self):
-        string1 = GuitarString(10)
-        string2 = GuitarString(10)
-        string3 = GuitarString(10)
-        string4 = GuitarString(10)
-        string5 = GuitarString(10)
-        self.strings = [string1, string2, string3, string4, string5]
+    def __init__(self, name, strings):
+        self.name = name
+        self.strings = strings
 
 
 class GuitarString:
@@ -44,8 +39,13 @@ class GuitarString:
     def __init__(self, length):
         self.length = length
 
-
-guitar = Guitar()
+string1 = GuitarString(10)
+string2 = GuitarString(10)
+string3 = GuitarString(10)
+string4 = GuitarString(10)
+string5 = GuitarString(10)
+my_strings = [string1, string2, string3, string4, string5]
+guitar = Guitar('Guitar',my_strings)
 
 
 # 3
