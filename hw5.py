@@ -17,7 +17,7 @@ class Battery:
         pass
 
 
-laptop = Laptop(battery)
+laptop = Laptop()
 
 
 # 2.
