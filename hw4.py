@@ -9,10 +9,10 @@ class Vehicle:
 class Bus(Vehicle):
     def __init__(self, max_speed, mileage, seating_capacity):
         super().__init__(max_speed, mileage)
-        self.seating_capacity = seating_capacity
+        self.__seating_capacity = seating_capacity
         
     def seating_capacity(self):
-        return self.seating_capacity
+        return self.__seating_capacity
 
 
 # 3. Determine which class a given Bus object belongs to (Check type of an object)
