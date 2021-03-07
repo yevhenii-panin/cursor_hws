@@ -4,8 +4,12 @@ class Laptop:
     Make the class with composition.
     """
 
-    def __init__(self, battery):
-        self.battery = Battery(battery)
+    def __init__(self, name, battery_type, battery_volume):
+        self.name = name
+        self.battery = Battery(battery_type, battery_volume)
+
+    def __str__(self):
+        return f'{self.name} with battery {self.battery}'
 
 
 class Battery:
@@ -13,11 +17,16 @@ class Battery:
     Make the class with composition.
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, battery_type, battery_volume):
+        self.battery_type = battery_type
+        self.battery_volume = battery_volume
+
+    def __str__(self):
+        return f'{self.battery_type} {self.battery_volume}'
 
 
-laptop = Laptop()
+laptop = Laptop('Dell 450 g2', 'Li-ion', '16800mAh')
+print(laptop)
 
 
 # 2.
@@ -30,6 +39,9 @@ class Guitar:
         self.name = name
         self.strings = strings
 
+    def __str__(self):
+        return f'{self.name} has {len(self.strings)} strings'
+
 
 class GuitarString:
     """
@@ -39,13 +51,18 @@ class GuitarString:
     def __init__(self, length):
         self.length = length
 
+    def __str__(self):
+        return f'string with length {self.length}'
+
+
 string1 = GuitarString(10)
 string2 = GuitarString(10)
 string3 = GuitarString(10)
 string4 = GuitarString(10)
 string5 = GuitarString(10)
 my_strings = [string1, string2, string3, string4, string5]
-guitar = Guitar('Guitar',my_strings)
+guitar = Guitar('Guitar', my_strings)
+print(guitar)
 
 
 # 3
