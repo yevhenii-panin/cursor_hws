@@ -22,10 +22,12 @@ class Garden(metaclass=GardenMeta):
         self.fruits = fruits
         self.pests = pests
         self.gardener = gardener
+        self.vegetables_names = [tomato.vegetable_type for tomato in self.vegetables]
+        self.fruits_names = [apple.fruits_type for apple in self.fruits]
 
     def show_the_garden(self):
-        print(f'The garden has such vegetables: {self.vegetables}')
-        print(f'Also garden has such fruits: {self.fruits}')
+        print(f'The garden has such vegetables: {self.vegetables_names}')
+        print(f'Also garden has such fruits: {self.fruits_names}')
         print(f'And such pests: {self.pests}')
         print(f'The maintainer of the garden is {self.gardener}')
 
@@ -237,13 +239,16 @@ class StarGardener(Gardener):
                 else:
                     return False
 
+    def __str__(self):
+        return f'{self.name}'
+
 
 class RealPests(Pests):
     def __init__(self, pests_type, quantity):
         super().__init__(pests_type, quantity)
 
     def eat(self):
-        for pest in range(0, self.quantity-1):
+        for pest in range(0, self.quantity - 1):
             if len(Garden().vegetables) > 0:
                 Garden().vegetables.pop()
                 print(f'One Vegetable was eaten, there are {len(Garden().vegetables)} more left.')
@@ -252,6 +257,9 @@ class RealPests(Pests):
                 print(f'One Fruit was eaten, there are {len(Garden().fruits)} more left.')
             else:
                 print('There is nothing to eat')
+
+    def __str__(self):
+        return f'{self.quantity} {self.pests_type}'
 
 
 veg_bush = TomatoBush(5)
