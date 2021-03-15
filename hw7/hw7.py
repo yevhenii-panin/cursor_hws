@@ -3,11 +3,14 @@ file = open('task1.txt', 'r')
 subtitle_data_raw = file.readlines()
 file.close()
 subtitle_vocab = {}
+file2 = open('task1_1.txt', 'w')
 for i in range(0, len(subtitle_data_raw), 2):
     timecode = subtitle_data_raw[i].replace("\n", "")
     subtitle_text = subtitle_data_raw[i + 1].replace("\n", "")
     subtitle_vocab[timecode] = subtitle_text
+    file2.write(subtitle_text)
 print(subtitle_vocab)
+file2.close
 
 # task 2
 import pickle
