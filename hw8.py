@@ -59,6 +59,7 @@ class Predator(Animal):
                 tmp = self.current_power
                 self.current_power = min(self.current_power + self.max_power * 0.5, self.max_power)
                 print(f'Predator restored {self.current_power - tmp} power')
+                forest.animals[target.id].current_power = 0
             else:
                 print('Predator did not caught target, both are tired')
                 self.current_power = self.current_power - 0.3 * self.max_power
