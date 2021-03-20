@@ -21,7 +21,7 @@ finally:
     file.close()
 
 log_template = '%(asctime)s - %(levelname)s - %(message)s'
-logging.basicConfig(level=logging.CRITICAL, filename="hw9_task1.log", filemode="a", format=log_template)
+logging.basicConfig(level=logging.DEBUG, filename="hw9_task1.log", filemode="a", format=log_template)
 
 
 def sum_func():
@@ -138,7 +138,12 @@ def deg_func():
         print("b is not decimal")
         logging.error('not decimal second number to deg')
         return
-    c = a ** b
+    try:
+        c = a ** b
+    except ZeroDivisionError:
+        print "0 ^ -1 can't be compute"
+        logging.error('trying 0 ^ -1')
+        return
     print(f"{a} ^ {b} = {c}")
     logging.info(f"deg_func is successfully finished, {a}, {b}")
     return c
@@ -300,3 +305,5 @@ def move(robot):
             if i == 0:
                 break
         time.sleep(1)
+
+move(test_robot)
