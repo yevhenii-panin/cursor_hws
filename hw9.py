@@ -141,7 +141,7 @@ def deg_func():
     try:
         c = a ** b
     except ZeroDivisionError:
-        print "0 ^ -1 can't be compute"
+        print("0 ^ -1 can't be compute")
         logging.error('trying 0 ^ -1')
         return
     print(f"{a} ^ {b} = {c}")
@@ -200,13 +200,13 @@ def per_func():
     return c
 
 
-sum_func()
-rem_func()
-mul_func()
-div_func()
-deg_func()
-root_func()
-per_func()
+# sum_func()
+# rem_func()
+# mul_func()
+# div_func()
+# deg_func()
+# root_func()
+# per_func()
 
 # Task 2
 # Напишіть клас робота пилососа
@@ -254,9 +254,10 @@ class VacuumRobot:
         self.water_left = water_left
 
     def wash(self):
-        self.water_left = max(self.water_left - self.water_loss, 0)
-        if self.water_left = 0:
+        if self.water_left == 0:
             raise NoWater
+            return
+        self.water_left = max(self.water_left - self.water_loss, 0)
 
     def vacuum_cleaner(self):
         self.garbage_fullness = min(self.garbage_fullness + random.randint(1, 3), 100)
@@ -288,8 +289,7 @@ def move(robot):
     i = 5
     while True:
         print("move")
-        if not NoWater:
-            wash(robot)
+        wash(robot)
         try:
             vacuum_cleaner(robot)
         except AlmostFilledGarbage:
@@ -305,5 +305,6 @@ def move(robot):
             if i == 0:
                 break
         time.sleep(1)
+
 
 move(test_robot)
