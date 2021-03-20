@@ -200,13 +200,13 @@ def per_func():
     return c
 
 
-# sum_func()
-# rem_func()
-# mul_func()
-# div_func()
-# deg_func()
-# root_func()
-# per_func()
+sum_func()
+rem_func()
+mul_func()
+div_func()
+deg_func()
+root_func()
+per_func()
 
 # Task 2
 # Напишіть клас робота пилососа
