@@ -200,13 +200,13 @@ def per_func():
     return c
 
 
-sum_func()
-rem_func()
-mul_func()
-div_func()
-deg_func()
-root_func()
-per_func()
+# sum_func()
+# rem_func()
+# mul_func()
+# div_func()
+# deg_func()
+# root_func()
+# per_func()
 
 # Task 2
 # Напишіть клас робота пилососа
@@ -263,6 +263,10 @@ class VacuumRobot:
         self.garbage_fullness = min(self.garbage_fullness + random.randint(1, 3), 100)
         if self.garbage_fullness > 90:
             raise AlmostFilledGarbage
+        if self.garbage_fullness == 100:
+            print("Container is full")
+            input('Press "Enter" to clean container:')
+            self.garbage_fullness = 0
 
     def step_end(self):
         self.battery_charge_level = max(self.battery_charge_level - self.energy_loss, 0)
@@ -274,12 +278,12 @@ class VacuumRobot:
 
 def wash(robot):
     print('wash')
-    robot.wash
+    robot.wash()
 
 
 def vacuum_cleaner(robot):
     print('vacuum_cleaner')
-    robot.vacuum_cleaner
+    robot.vacuum_cleaner()
 
 
 test_robot = VacuumRobot(60, 50, 40)
@@ -295,7 +299,7 @@ def move(robot):
         except AlmostFilledGarbage:
             print('Container is almost full, please clear!')
         try:
-            robot.step_end
+            robot.step_end()
         except NoPower:
             print("Battery empty, power off")
             break
