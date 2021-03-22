@@ -256,7 +256,7 @@ class VacuumRobot:
     def wash(self):
         if self.water_left == 0:
             raise NoWater
-            return
+            # return
         self.water_left = max(self.water_left - self.water_loss, 0)
 
     def vacuum_cleaner(self):
@@ -291,9 +291,15 @@ test_robot = VacuumRobot(60, 50, 40)
 
 def move(robot):
     i = 5
+    k = 0
     while True:
         print("move")
-        wash(robot)
+        try:
+            wash(robot)
+        except NoWater:
+            if k == 0:
+                print("There is no water, no more washing...")
+                k += 1
         try:
             vacuum_cleaner(robot)
         except AlmostFilledGarbage:
