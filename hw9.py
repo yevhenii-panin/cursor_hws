@@ -27,14 +27,14 @@ logging.basicConfig(level=logging.DEBUG, filename="hw9_task1.log", filemode="a",
 def sum_func():
     print('-sum-')
     logging.info("calling sum_func")
-    str_a = input('first num:')
+    str_a = input('first num: ')
     try:
         a = int(str_a)
     except ValueError:
         print('a is not decimal')
         logging.error('not decimal first number to sum')
         return
-    str_b = input('second num:')
+    str_b = input('second num: ')
     try:
         b = int(str_b)
     except ValueError:
@@ -50,14 +50,14 @@ def sum_func():
 def rem_func():
     print('-rem-')
     logging.info("calling rem_func")
-    str_a = input('first num:')
+    str_a = input('first num: ')
     try:
         a = int(str_a)
     except ValueError:
         print('a is not decimal')
         logging.error('not decimal first number to rem')
         return
-    str_b = input('second num:')
+    str_b = input('second num: ')
     try:
         b = int(str_b)
     except ValueError:
@@ -73,14 +73,14 @@ def rem_func():
 def mul_func():
     print('-mul-')
     logging.info("calling mul_func")
-    str_a = input('first num:')
+    str_a = input('first num: ')
     try:
         a = int(str_a)
     except ValueError:
         print('a is not decimal')
         logging.error('not decimal first number to mul')
         return
-    str_b = input('second num:')
+    str_b = input('second num: ')
     try:
         b = int(str_b)
     except ValueError:
@@ -96,14 +96,14 @@ def mul_func():
 def div_func():
     print('-div-')
     logging.info("calling div_func")
-    str_a = input('first num:')
+    str_a = input('first num: ')
     try:
         a = int(str_a)
     except ValueError:
         print("a is not decimal")
         logging.error('not decimal first number to div')
         return
-    str_b = input('second num:')
+    str_b = input('second num: ')
     try:
         b = int(str_b)
     except ValueError:
@@ -124,14 +124,14 @@ def div_func():
 def deg_func():
     print('-deg-')
     logging.info("calling deg_func")
-    str_a = input('first num:')
+    str_a = input('first num: ')
     try:
         a = int(str_a)
     except ValueError:
         print("a is not decimal")
         logging.error('not decimal first number to deg')
         return
-    str_b = input('second num:')
+    str_b = input('second num: ')
     try:
         b = int(str_b)
     except ValueError:
@@ -152,14 +152,14 @@ def deg_func():
 def root_func():
     print('-root-')
     logging.info("calling root_func")
-    str_a = input('first num:')
+    str_a = input('first num: ')
     try:
         a = int(str_a)
     except ValueError:
         print("a is not decimal")
         logging.error('not decimal first number to root')
         return
-    str_b = input('second num:')
+    str_b = input('second num: ')
     try:
         b = int(str_b)
     except ValueError:
@@ -180,14 +180,14 @@ def root_func():
 def per_func():
     print('-per-')
     logging.info("calling per_func")
-    str_a = input('first num:')
+    str_a = input('first num: ')
     try:
         a = int(str_a)
     except ValueError:
         print("a is not decimal")
         logging.error('not decimal first number to per')
         return
-    str_b = input('second num:')
+    str_b = input('second num: ')
     try:
         b = int(str_b)
     except ValueError:
@@ -310,10 +310,12 @@ def move(robot):
             print("Battery empty, power off")
             break
         except LowPower:
-            print(f"Battery low, {i} steps remaining")
-            i = i - 1
             if i == 0:
+                print("The work is stopped! Charge me!")
                 break
+            else:
+                print(f"Battery low, {i} steps remaining")
+                i = i - 1
         time.sleep(1)
 
 
