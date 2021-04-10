@@ -31,48 +31,49 @@ if args.end_salary is None:
     args.end_salary = int(18000)
 else:
     args.end_salary = int(args.end_salary)
-if args.age is not None:
-    args.age = int(args.age)
+# if args.age is not None:
+#     args.age = int(args.age)
 
-i = 0
+lst_salary = []
 with open('2020_june_mini.csv', "r", encoding="utf8") as file:
-    with open('2020_june_mini_new.csv', "w", encoding="utf8") as new_file:
-        reader = csv.reader(file)
-        for row in reader:
-            if i == 0:
-                new_file.write(f"{str(row)[1:len(str(row))-1]}\n")
-                i = 1
-                continue
-            if int(row[2]) >= args.start_salary:
-                if int(row[2]) <= args.end_salary:
-                    if args.position is None:
-                        if args.age is None:
+    reader = csv.reader(file)
+    for row in reader:
+        if i == 0:
+            i = 1
+            continue
+        if int(row[2]) >= args.start_salary:
+            if int(row[2]) <= args.end_salary:
+                if args.position is None:
+                    if args.age is None:
+                        if args.language is None:
+                            lst_salary.append(int(row[2]))
+                        else:
+                            if args.language == row[7]:
+                                lst_salary.append(int(row[2]))
+                    else:
+                        if args.age == row[9]:
                             if args.language is None:
-                                new_file.write(f"{str(row)[1:len(str(row))-1]}\n")
+                                lst_salary.append(int(row[2]))
                             else:
                                 if args.language == row[7]:
-                                    new_file.write(f"{str(row)[1:len(str(row))-1]}\n")
+                                    lst_salary.append(int(row[2]))
+                else:
+                    if args.position == row[4]:
+                        if args.age is None:
+                            if args.language is None:
+                                lst_salary.append(int(row[2]))
+                            else:
+                                if args.language == row[7]:
+                                    lst_salary.append(int(row[2]))
                         else:
                             if args.age == row[9]:
                                 if args.language is None:
-                                    new_file.write(f"{str(row)[1:len(str(row))-1]}\n")
+                                    lst_salary.append(int(row[2]))
                                 else:
                                     if args.language == row[7]:
-                                        new_file.write(f"{str(row)[1:len(str(row))-1]}\n")
-                    else:
-                        if args.position == row[4]:
-                            if args.age is None:
-                                if args.language is None:
-                                    new_file.write(f"{str(row)[1:len(str(row))-1]}\n")
-                                else:
-                                    if args.language == row[7]:
-                                        new_file.write(f"{str(row)[1:len(str(row))-1]}\n")
-                            else:
-                                if args.age == row[9]:
-                                    if args.language is None:
-                                        new_file.write(f"{str(row)[1:len(str(row))-1]}\n")
-                                    else:
-                                        if args.language == row[7]:
-                                            new_file.write(f"{str(row)[1:len(str(row))-1]}\n")
+                                        lst_salary.append(int(row[2]))
 
-print("Your file is ready!, 2020_june_mini_new.csv")
+if len(lst_salary) > 0:
+    print(f"Average salary for your request is {sum(lst_salary) / len(lst_salary)}")
+else:
+    print("There is no data for your request!")
