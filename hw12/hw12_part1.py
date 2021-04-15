@@ -58,7 +58,8 @@ with open(path_to_open, 'r', encoding="utf8") as file:
         reader = csv.reader(file)
         for row in reader:
             if i == 0:
-                new_file.write(f"{str(row)[1:len(str(row)) - 1]}\n")
+                to_write = str(row)[1:len(str(row)) - 1].replace("'", "")
+                new_file.write(f"{to_write}\n")
                 i = 1
                 continue
             if args.age is None or args.age == row[9]:
@@ -67,7 +68,8 @@ with open(path_to_open, 'r', encoding="utf8") as file:
                         if args.sex is None or args.sex == row[10]:
                             if args.exp == row[5]:
                                 if args.current_job_exp == row[6]:
-                                    new_file.write(f"{str(row)[1:len(str(row)) - 1]}\n")
+                                    to_write = str(row)[1:len(str(row)) - 1].replace("'", "")
+                                    new_file.write(f"{to_write}\n")
 
 print("Your file is ready!, 2020_june_mini_new.csv")
 # --path_to_source_files . --age 30 --current_job_exp 3 --exp 3
