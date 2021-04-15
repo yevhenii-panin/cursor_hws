@@ -35,7 +35,8 @@ else:
 #     args.age = int(args.age)
 
 lst_salary = []
-with open('2020_june_mini.csv', "r", encoding="utf8") as file:
+i = 0
+with open(f'{args.source_file_path}/2020_june_mini.csv', "r", encoding="utf8") as file:
     reader = csv.reader(file)
     for row in reader:
         if i == 0:
@@ -77,3 +78,4 @@ if len(lst_salary) > 0:
     print(f"Average salary for your request is {sum(lst_salary) / len(lst_salary)}")
 else:
     print("There is no data for your request!")
+# --source_file_path . --age 30

@@ -39,8 +39,8 @@ import csv
 
 parser = argparse.ArgumentParser(
     description='The script should read the .csv file and get the information based on your input and generate a new .csv file with that info')
-parser.add_argument("--exp", required=False, default=10, help="Experience")
-parser.add_argument("--current_job_exp", required=False, default=0, help="Experience on current job")
+parser.add_argument("--exp", required=False, default=0, help="Experience")
+parser.add_argument("--current_job_exp", required=False, default=10, help="Experience on current job")
 parser.add_argument("--sex", "-s", required=False, help="Sex")
 parser.add_argument("--city", required=False, help="City")
 parser.add_argument("--position", "-p", required=False, help="Position")
@@ -65,8 +65,9 @@ with open(path_to_open, 'r', encoding="utf8") as file:
                 if args.city is None or args.city == row[1]:
                     if args.position is None or args.position == row[4]:
                         if args.sex is None or args.sex == row[10]:
-                            if args.exp is None or args.exp == row[5]:
-                                if args.current_job_exp is None or args.current_job_exp == row[6]:
+                            if args.exp == row[5]:
+                                if args.current_job_exp == row[6]:
                                     new_file.write(f"{str(row)[1:len(str(row)) - 1]}\n")
 
 print("Your file is ready!, 2020_june_mini_new.csv")
+# --path_to_source_files . --age 30 --current_job_exp 3 --exp 3
